@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReNova – Smarter, Greener Living</title>
+
+<style>
+
+:root {
+    --gold:#d4a056;
+    --earth:#8c6b21;
+    --charcoal:#3b3f32;
+    --cream:#fef8ef;
+    --card-bg:#ffffffdd;
+    --hover-glow: rgba(212,160,86,0.4);
+    --text: #3b3f32;
+}
+
+/* 🌙 DARK MODE VARIABLES */
+body.dark {
+    --gold:#e7c27e;
+    --earth:#a47c2c;
+    --charcoal:#f4f4f4;
+    --cream:#1a1a1a;
+    --card-bg:#2b2b2bdd;
+    --hover-glow: rgba(255,220,150,0.25);
+    --text:#f0e6d2;
+}
+
+/* BODY */
+body {
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:var(--cream);
+    color:var(--text);
+    line-height:1.7;
+}
+
+/* DARK MODE TOGGLE BUTTON */
+#themeToggle{
+    position:fixed;
+    top:20px;
+    right:20px;
+    padding:10px 20px;
+    background:var(--earth);
+    color:var(--cream);
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    z-index:1000;
+    font-weight:600;
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+#themeToggle:hover{
+    transform:scale(1.05);
+    background:var(--gold);
+}
+
+/* LINKS */
+a {
+    color:var(--gold);
+    text-decoration:none;
+    transition:0.3s;
+}
+a:hover {
+    color:var(--earth);
+    text-shadow:0 0 12px var(--hover-glow);
+}
+
+/* HEADINGS */
+h1,h2,h3 {
+    color:var(--charcoal);
+    transition:0.35s ease;
+    cursor:pointer;
+}
+h1:hover,h2:hover,h3:hover {
+    color:var(--gold);
+    text-shadow:0 0 12px var(--hover-glow);
+    transform:scale(1.05);
+}
+h2::after {
+    content:"";
+    display:block;
+    width:0%;
+    height:3px;
+    background:var(--gold);
+    border-radius:50px;
+    margin-top:5px;
+    transition:width 0.4s ease;
+}
+h2:hover::after { width:100%; }
+
+/* HEADER */
+header {
+    background-image: url("11.webp");
+    background-size:cover;
+    background-position:center;
+    padding:140px 20px;
+    text-align:center;
+    color:var(--cream);
+    text-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+header h1 {
+    font-size:3rem;
+    font-weight:700;
+}
+header p {
+    font-size:2rem;
+    font-style:italic;
+    max-width:800px;
+    margin:20px auto 0;
+    color:black;
+}
+
+/* NAVIGATION */
+nav {
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    background:var(--earth);
+    padding:15px 0;
+}
+nav a {
+    font-weight:600;
+    color:var(--cream);
+}
+nav a:hover {
+    color:var(--gold);
+    text-shadow:0 0 10px var(--hover-glow);
+}
+
+/* SECTIONS */
+section {
+    max-width:1200px;
+    margin:80px auto;
+    padding:0 20px;
+}
+
+/* CARDS */
+.card {
+    background:var(--card-bg);
+    padding:25px;
+    margin:30px 0;
+    border-radius:15px;
+    backdrop-filter:blur(12px);
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    border:1px solid rgba(212,160,86,0.4);
+    transition:0.4s;
+}
+.card:hover {
+    transform:scale(1.03);
+    box-shadow:0 12px 30px var(--hover-glow);
+}
+
+/* GRID */
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:25px;
+}
+
+.box {
+    background:var(--card-bg);
+    padding:25px;
+    border-radius:15px;
+    border:2px dashed var(--gold);
+    backdrop-filter:blur(10px);
+    transition:0.3s ease;
+    text-align:center;
+    font-weight:600;
+}
+.box:hover {
+    background:var(--gold);
+    color:var(--cream);
+    transform:scale(1.08) rotate(1deg);
+    box-shadow:0 12px 25px var(--hover-glow);
+}
+
+/* LIST ICONS */
+.card li {
+    margin:10px 0;
+    padding-left:25px;
+    position:relative;
+}
+.card li::before {
+    content:"🌿";
+    position:absolute;
+    left:0;
+}
+
+/* FOOTER */
+footer {
+    background:var(--charcoal);
+    color:var(--cream);
+    padding:25px 15px;
+    text-align:center;
+}
+
+#Next1{
+    bottom: 10px;
+    left: 10px;
+}
+</style>
+</head>
+<body>
+
+<!-- 🌙 DARK MODE BUTTON -->
+<button id="themeToggle">Dark Mode</button>
+
+
+<nav>
+    <a href="#Overview">Overview</a>
+    <a href="#why">Why It Matters</a>
+    <a href="#topics">Topics</a>
+    <a href="#values">Values</a>
+</nav>
+
+<header>
+    <h1>Welcome to ReNova</h1>
+    <p>Smarter, Greener Living — Make responsible choices every day to protect our planet.</p>
+</header>
+
+<section id="Overview">
+    <h2>Overview</h2>
+    <div class="card">
+        <p>
+            ReNova is a small initiative dedicated to promoting Responsible Consumption by encouraging people 
+            to use resources wisely, reduce waste, and make environmentally conscious choices...
+        </p>
+    </div>
+</section>
+
+<section id="why">
+    <h2>Why Responsible Consumption Matters</h2>
+    <div class="grid">
+        <div class="box">Reduce pollution</div>
+        <div class="box">Save natural resources</div>
+        <div class="box">Protect wildlife</div>
+        <div class="box">Lower carbon footprints</div>
+        <div class="box">Build a cleaner future</div>
+    </div>
+</section>
+
+<section id="topics">
+    <h2>What You’ll Find on ReNova</h2>
+    <div class="card">
+        <ul>
+            <li>Plastic Waste Awareness</li>
+            <li>E-Waste Management</li>
+            <li>DIY & Reuse Ideas</li>
+            <li>Green Alternatives</li>
+            <li>ReNova Camps & Workshops</li>
+        </ul>
+    </div>
+</section>
+
+<section id="values">
+    <h2>Our Values</h2>
+    <div class="grid">
+        <div class="box">🌱 Sustainability</div>
+        <div class="box">🌟 Simplicity</div>
+        <div class="box">💡 Creativity</div>
+        <div class="box">🤝 Community</div>
+        <div class="box">🔍 Transparency</div>
+    </div>
+</section>
+
+<section>
+    <a href="page2.html" id="Next1"><strong><u>Go to Page 2</u></strong></a>
+</section>
+
+<footer>
+    © 2025 ReNova | Refresh, Renew, Restore 🌱
+</footer>
+
+<!-- 🌙 DARK MODE SCRIPT -->
+<script>
+document.getElementById("themeToggle").onclick = function () {
+    document.body.classList.toggle("dark");
+    this.textContent = document.body.classList.contains("dark")
+        ? "Light Mode"
+        : "Dark Mode";
+};
+</script>
+
+</body>
+</html>

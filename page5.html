@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SDG 12 – Responsible Consumption &amp; Production</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root{
+    --green:#4caf50;
+    --dark:#1e4620;
+    --accent:#8ee89d;
+    --bg:#f3fff6;
+    --card:#ffffffcc;
+    --text:#222;
+    --header-bg-gradient: linear-gradient(180deg, rgba(30,70,32,0.95), rgba(30,70,32,0.65));
+    --backdrop-filter-strength: 12px;
+}
+
+/* Dark theme variables (applies when body has class "dark") */
+body.dark{
+    --green:#66d07b;
+    --dark:#d6f6dd;
+    --accent:#236b2b;
+    --bg:#071217;
+    --card: rgba(255,255,255,0.04);
+    --text:#e9f5ee;
+    --header-bg-gradient: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.35));
+    --backdrop-filter-strength: 8px;
+}
+
+*{box-sizing:border-box;}
+
+body{
+    margin:0;
+    font-family:"Poppins",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+    transition:background 0.4s ease, color 0.4s ease;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/* Theme toggle button (inserted into DOM) */
+.theme-toggle{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:var(--green);
+    color:white;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:0.9rem;
+    cursor:pointer;
+    z-index:999;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    transition:transform 0.2s, box-shadow 0.2s, background 0.2s;
+    border:none;
+}
+.theme-toggle:focus{
+    outline:3px solid rgba(100,200,120,0.25);
+    outline-offset:3px;
+}
+.theme-toggle:hover{ transform:scale(1.05); }
+
+/* Header */
+header{
+    background-image: var(--header-bg-gradient);
+    /* If you want a background photo, uncomment below and replace URL:
+       background-image: var(--header-bg-gradient), url('your-image.jpg');
+    */
+    background-size:cover;
+    background-position:center;
+    padding:120px 25px;
+    text-align:center;
+    color:white;
+    position:relative;
+}
+
+header h1{
+    font-size:2.6rem;
+    font-weight:700;
+    letter-spacing:1px;
+    margin:0 0 10px;
+    text-shadow:0 0 18px rgba(0,0,0,0.35);
+    animation:fadeDown 1.3s ease;
+}
+
+header p{
+    max-width:900px;
+    margin:auto;
+    font-size:1.05rem;
+    opacity:0.95;
+    animation:fadeUp 1.6s ease;
+}
+
+/************** FLOATING PARTICLES **************/
+/* particles sit behind page content but above the page background */
+.particle{
+    position:fixed;
+    top:-10px;
+    width:8px;
+    height:8px;
+    background:var(--accent);
+    border-radius:50%;
+    animation:fall linear infinite;
+    opacity:0.4;
+    z-index:0; /* behind header content which has default z-index:auto (>=1 in stacking) */
+    pointer-events:none;
+}
+
+/* reduce motion for prefers-reduced-motion users */
+@media (prefers-reduced-motion: reduce){
+    .particle{ animation:none; display:none; }
+}
+
+/************** TITLES **************/
+h2{
+    text-align:center;
+    font-size:2.2rem;
+    color:var(--dark);
+    margin-bottom:25px;
+    display:inline-block;
+    position:relative;
+    cursor:default;
+    transition:transform 0.35s ease, color 0.35s;
+}
+
+h2:hover{
+    transform:scale(1.04);
+    color:var(--green);
+    text-shadow:0 0 12px rgba(76,175,80,0.25);
+}
+
+h2::after{
+    content:"";
+    position:absolute;
+    bottom:-6px;
+    left:0;
+    width:0%;
+    height:3px;
+    background:var(--accent);
+    border-radius:50px;
+    transition:width 0.4s ease;
+}
+
+h2:hover::after{ width:100%; }
+
+/************** SECTIONS **************/
+main{ max-width:1200px; margin:0 auto; padding:24px; }
+section{
+    margin:48px 0;
+    opacity:0;
+    transform:translateY(40px);
+    transition:opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.card{
+    background:var(--card);
+    padding:22px;
+    margin:18px 0;
+    border-radius:14px;
+    backdrop-filter:blur(var(--backdrop-filter-strength));
+    box-shadow:0 8px 25px rgba(0,0,0,0.12);
+    border:1px solid rgba(255,255,255,0.06);
+    transition:transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 14px 36px rgba(0,0,0,0.18);
+}
+
+/* grid and boxes */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:18px;
+}
+
+.box{
+    background:var(--card);
+    padding:20px;
+    border-radius:12px;
+    border:2px dashed var(--accent);
+    backdrop-filter:blur(10px);
+    transition:transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+    text-align:center;
+    font-weight:600;
+}
+
+.box:hover{
+    background:var(--green);
+    color:white;
+    transform:scale(1.04) rotate(0.6deg);
+    box-shadow:0 12px 25px rgba(0,0,0,0.18);
+}
+
+/************** LISTS **************/
+.card ul{ padding-left:1rem; margin:0; }
+.card li{
+    margin:10px 0;
+    padding-left:26px;
+    position:relative;
+}
+
+.card li::before{
+    content:"🌿";
+    position:absolute;
+    left:0;
+}
+
+/************** BACK LINK **************/
+#Back{
+    display:inline-block;
+    margin:12px 0;
+    padding:8px 12px;
+    border-radius:8px;
+    text-decoration:none;
+    color:var(--text);
+    background:transparent;
+    border:1px solid rgba(0,0,0,0.06);
+    transition:all 0.2s;
+}
+#Back:hover{
+    transform:translateY(-3px);
+    background:var(--accent);
+    color:#08320b;
+    text-decoration:none;
+}
+#Back:focus{ outline:3px solid rgba(100,200,120,0.2); outline-offset:3px; }
+
+/************** FOOTER **************/
+footer{
+    background:var(--dark);
+    color:white;
+    padding:18px;
+    text-align:center;
+    margin-top:40px;
+    border-top-left-radius:8px;
+    border-top-right-radius:8px;
+}
+
+/************** ANIMATIONS **************/
+@keyframes fadeDown{
+    from{opacity:0; transform:translateY(-30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+@keyframes fall{
+    /* translateY value large enough to move off-screen */
+    to{ transform: translateY(130vh) translateX(20px); opacity:0; }
+}
+
+/* Responsive tweaks */
+@media (max-width:600px){
+    header{ padding:80px 16px; }
+    header h1{ font-size:1.6rem; }
+    .theme-toggle{ top:12px; right:12px; padding:6px 10px; }
+}
+</style>
+</head>
+
+<body>
+<!-- Accessible skip link -->
+<a class="skip-link" href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to content</a>
+
+<!-- Theme toggle (visible) -->
+<button class="theme-toggle" id="themeToggle" aria-pressed="false" title="Toggle dark / light theme">Dark mode</button>
+
+<header>
+    <h1>SDG 12: Responsible Consumption &amp; Production</h1>
+    <p>Ensuring sustainable patterns of consumption and production for a greener future.</p>
+</header>
+
+<main id="main-content">
+<section>
+    <h2>What SDG 12 Seeks to Achieve</h2>
+    <div class="card">
+        <ul>
+            <li>Use natural resources efficiently</li>
+            <li>Reduce pollution &amp; waste</li>
+            <li>Promote sustainable lifestyles</li>
+            <li>Support greener production practices</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>Key Targets</h2>
+    <div class="card">
+        <ul>
+            <li>Build national sustainable consumption frameworks</li>
+            <li>Efficient use of natural resources</li>
+            <li>Halve global food waste</li>
+            <li>Environmentally sound chemical &amp; waste management</li>
+            <li>Promote reuse &amp; recycling</li>
+            <li>Encourage sustainability reporting</li>
+            <li>Sustainable government procurement</li>
+            <li>Promote sustainability through education</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>Why SDG 12 Matters</h2>
+    <div class="grid">
+        <div class="box" role="note" aria-label="Earth regeneration">🌍 Earth is being used faster than it can regenerate.</div>
+        <div class="box" role="note" aria-label="Plastic and e-waste rising">♻️ Plastic &amp; e-waste are rising dangerously.</div>
+        <div class="box" role="note" aria-label="Over consumption climate change">🔥 Over-consumption drives climate change.</div>
+        <div class="box" role="note" aria-label="Biodiversity loss accelerating">🐾 Biodiversity loss is accelerating globally.</div>
+    </div>
+</section>
+
+<section>
+    <h2>Examples in Action</h2>
+    <div class="card">
+        <ul>
+            <li>Circular economy industries</li>
+            <li>Retailers reducing packaging</li>
+            <li>Energy-efficient appliances</li>
+            <li>Improved recycling systems</li>
+            <li>Plastic bans &amp; chemical regulations</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>Connected SDGs</h2>
+    <div class="grid">
+        <div class="box">🌿 SDG 13 — Climate Action</div>
+        <div class="box">💧 SDG 6 — Clean Water</div>
+        <div class="box">🌾 SDG 2 — Zero Hunger</div>
+        <div class="box">⚡ SDG 7 — Clean Energy</div>
+    </div>
+</section>
+
+<section>
+    <a href="page4.html" id="Back"><strong><u>Back</u></strong></a>
+</section>
+</main>
+
+<footer>
+    © 2025 SDG 12 Awareness | Together for a Sustainable Planet 🌱
+</footer>
+
+<script>
+/* ===== Floating particles (created after DOM loaded) ===== */
+document.addEventListener('DOMContentLoaded', function () {
+    const particleCount = 20;
+    for (let i = 0; i < particleCount; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + 'vw';
+        p.style.width = (6 + Math.random() * 10) + 'px';
+        p.style.height = p.style.width;
+        // duration between 8s and 16s
+        p.style.animationDuration = (8 + Math.random() * 8) + 's';
+        p.style.opacity = (0.15 + Math.random() * 0.5);
+        // stagger animation delay so particles don't all start together
+        p.style.animationDelay = (Math.random() * -12) + 's';
+        document.body.appendChild(p);
+    }
+});
+
+/* ===== Theme toggle ===== */
+const themeToggle = document.getElementById('themeToggle');
+function setTheme(dark) {
+    if (dark) {
+        document.body.classList.add('dark');
+        themeToggle.textContent = 'Light mode';
+        themeToggle.setAttribute('aria-pressed', 'true');
+    } else {
+        document.body.classList.remove('dark');
+        themeToggle.textContent = 'Dark mode';
+        themeToggle.setAttribute('aria-pressed', 'false');
+    }
+    // persist preference
+    try { localStorage.setItem('sdg12-theme-dark', dark ? '1' : '0'); } catch (e) {}
+}
+
+// Initialize from OS preference or localStorage
+(function initTheme(){
+    let stored = null;
+    try { stored = localStorage.getItem('sdg12-theme-dark'); } catch (e) {}
+    if (stored === '1') { setTheme(true); return; }
+    if (stored === '0') { setTheme(false); return; }
+    // fallback to OS preference
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(prefersDark);
+})();
+
+themeToggle.addEventListener('click', function () {
+    const isDark = document.body.classList.contains('dark');
+    setTheme(!isDark);
+});
+
+/* Keyboard accessibility: toggle on Enter / Space when focused */
+themeToggle.addEventListener('keyup', function(e){
+    if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        themeToggle.click();
+    }
+});
+
+/* ===== Scroll reveal ===== */
+const sections = document.querySelectorAll('main section');
+function revealOnScroll(){
+    const trigger = window.innerHeight * 0.85;
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < trigger) sec.classList.add('visible');
+    });
+}
+window.addEventListener('scroll', revealOnScroll, { passive: true });
+window.addEventListener('resize', revealOnScroll);
+revealOnScroll();
+</script>
+
+</body>
+</html>

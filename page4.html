@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReNova | E-Waste Awareness</title>
+
+<style>
+
+    /* LIGHT MODE (original colors) */
+    :root {
+        --bg: #F5EDE0;
+        --text: #4B3F33;
+        --hero1: #E8DCC8;
+        --hero2: #BFA27A;
+        --card: #FFF8EE;
+        --border: #E8DCC8;
+        --border-dark: #D2B48C;
+        --button: #BFA27A;
+        --button-hover: #A88B65;
+    }
+
+    /* 🌙 DARK MODE (only added block) */
+    body.dark {
+        --bg: #1b1b1b;
+        --text: #e8e0d3;
+        --hero1: #3c352e;
+        --hero2: #8c7a56;
+        --card: #2b2621;
+        --border: #5b4d3b;
+        --border-dark: #9d8a63;
+        --button: #8c7a56;
+        --button-hover: #7a684b;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        transition: 0.3s;
+    }
+
+    /* 🌙 DARK MODE TOGGLE BUTTON */
+    #themeToggle {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        padding: 8px 16px;
+        border: none;
+        background: var(--button);
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 20px;
+        z-index: 1000;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+    #themeToggle:hover {
+        background: var(--button-hover);
+        transform: scale(1.05);
+    }
+
+
+    .hero {
+        padding: 90px 40px;
+        background: linear-gradient(120deg, var(--hero1), var(--hero2));
+        color: var(--text);
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
+        border-bottom: 3px solid var(--border-dark);
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        letter-spacing: 1px;
+        font-weight: 700;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        opacity: 0.9;
+        font-weight: 500;
+    }
+
+    .section {
+        padding: 55px 40px;
+        max-width: 1100px;
+        margin: auto;
+        animation: fadeUp 1s ease;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        color: var(--text);
+        border-left: 6px solid var(--hero2);
+        padding-left: 12px;
+        font-weight: 600;
+    }
+
+    .card {
+        background: var(--card);
+        padding: 25px;
+        border-radius: 18px;
+        margin: 20px 0;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+        border: 1px solid var(--border);
+        transition: 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 26px rgba(0,0,0,0.12);
+        border-color: var(--border-dark);
+    }
+
+    ul li {
+        margin: 8px 0;
+        line-height: 1.5;
+        font-weight: 500;
+    }
+
+    .cta {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .cta a {
+        background: var(--button);
+        padding: 14px 30px;
+        color: white;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: 0.3s;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    .cta a:hover {
+        background: var(--button-hover);
+        transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(25px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- 🌙 DARK MODE BUTTON -->
+<button id="themeToggle">Dark Mode</button>
+
+
+<section class="hero">
+    <h1>E-Waste Awareness</h1>
+    <p>Understanding electronic waste & how to dispose it responsibly.</p>
+</section>
+
+
+<section class="section">
+    <h2>What is E-Waste?</h2>
+    <div class="card">
+        <p>
+            E-waste (Electronic Waste) includes old, broken, or unused electronic devices 
+            like phones, laptops, chargers, TVs, and batteries.  
+            These items contain harmful chemicals like lead, mercury, and cadmium,  
+            which can damage the environment if not disposed of properly.
+        </p>
+    </div>
+</section>
+
+
+<section class="section">
+    <h2>Why Is E-Waste Harmful?</h2>
+    <div class="card">
+        <ul>
+            <li>Releases toxic chemicals into soil and water.</li>
+            <li>Pollutes air when burned improperly.</li>
+            <li>Harms human health causing diseases & breathing problems.</li>
+            <li>Leads to soil contamination and crop damage.</li>
+            <li>Contains non-biodegradable materials like plastic and metal.</li>
+        </ul>
+    </div>
+</section>
+
+
+<section class="section">
+    <h2>Examples of E-Waste</h2>
+    <div class="card">
+        <ul>
+            <li>Mobile phones & chargers</li>
+            <li>Computers & laptops</li>
+            <li>Earphones, wires & cables</li>
+            <li>Batteries & power banks</li>
+            <li>Microwaves, TVs, refrigerators</li>
+            <li>Smartwatches & electronic toys</li>
+        </ul>
+    </div>
+</section>
+
+<section class="section">
+    <h2>How Can We Reduce E-Waste?</h2>
+    <div class="card">
+        <ul>
+            <li>Donate working electronics instead of throwing them.</li>
+            <li>Repair devices instead of buying new ones.</li>
+            <li>Use certified e-waste recycling centers.</li>
+            <li>Avoid burning electronic waste.</li>
+            <li>Buy only what you need — avoid over-consumption.</li>
+            <li>Choose long-lasting, durable electronics.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="section">
+    <h2>ReNova’s Work for E-Waste</h2>
+    <div class="card">
+        <p>
+            ReNova conducts e-waste awareness activities,  
+            encourages responsible disposal,  
+            and collaborates with recycling centers to reduce environmental harm.  
+            We aim to guide communities toward proper e-waste management and sustainable habits.
+        </p>
+    </div>
+</section>
+
+
+<section>
+    <a href="page3.html" id="Next"><strong><u>Back</u></strong></a>
+    <a href="page5.html" id="Back"><strong><u>Go to Page 5</u></strong></a>
+</section>
+
+<!-- 🌙 DARK MODE SCRIPT -->
+<script>
+    document.getElementById("themeToggle").onclick = function () {
+        document.body.classList.toggle("dark");
+        this.textContent = 
+          document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
+    };
+</script>
+
+</body>
+</html>

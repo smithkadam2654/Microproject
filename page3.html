@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReNova | Plastics Awareness</title>
+
+<style>
+
+    /* ORIGINAL COLORS */
+    :root {
+        --bg: #F5EDE0;
+        --text: #4B3F33;
+        --hero1: #E8DCC8;
+        --hero2: #BFA27A;
+        --card: #FFF8EE;
+        --border: #E8DCC8;
+        --border-dark: #D2B48C;
+        --button: #BFA27A;
+        --button-hover: #A88B65;
+    }
+
+    /* 🌙 DARK MODE COLORS */
+    body.dark {
+        --bg: #1a1a1a;
+        --text: #f2e9dd;
+        --hero1: #3b352c;
+        --hero2: #8d744e;
+        --card: #2a2520;
+        --border: #5c4c39;
+        --border-dark: #a0885e;
+        --button: #8d744e;
+        --button-hover: #7a6443;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        transition: 0.3s;
+    }
+
+    /* 🌙 DARK MODE BUTTON (ONLY NEW THING ADDED) */
+    #themeToggle {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 20px;
+        background: var(--button);
+        color: white;
+        cursor: pointer;
+        font-weight: 600;
+        z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+    #themeToggle:hover {
+        background: var(--button-hover);
+        transform: scale(1.05);
+    }
+
+    /* ---------------- HERO ---------------- */
+    .hero {
+        padding: 90px 40px;
+        background: linear-gradient(120deg, var(--hero1), var(--hero2));
+        color: var(--text);
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
+        border-bottom: 3px solid var(--border-dark);
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        letter-spacing: 1px;
+        font-weight: 700;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-top: 8px;
+        opacity: 0.9;
+        font-weight: 500;
+    }
+
+    /* ---------------- SECTIONS ---------------- */
+    .section {
+        padding: 55px 40px;
+        max-width: 1100px;
+        margin: auto;
+        animation: fadeUp 1s ease;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        color: var(--text);
+        border-left: 6px solid var(--hero2);
+        padding-left: 12px;
+        font-weight: 600;
+    }
+
+    /* ---------------- CARDS ---------------- */
+    .card {
+        background: var(--card);
+        padding: 25px;
+        border-radius: 18px;
+        margin: 20px 0;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+        border: 1px solid var(--border);
+        transition: 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 26px rgba(0,0,0,0.12);
+        border-color: var(--border-dark);
+    }
+
+    ul li {
+        margin: 8px 0;
+        line-height: 1.5;
+        font-weight: 500;
+    }
+
+    /* ---------------- CTA BUTTON ---------------- */
+    .cta {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .cta a {
+        background: var(--button);
+        padding: 14px 30px;
+        color: white;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: 0.3s;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    .cta a:hover {
+        background: var(--button-hover);
+        transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(25px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    #Back{
+        bottom: 10px;
+        left: 20px;
+    }
+
+    #Next{
+        bottom: 10px;
+        right: 10px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- 🌙 DARK MODE BUTTON -->
+<button id="themeToggle">Dark Mode</button>
+
+<!-- ------------ HERO SECTION ------------ -->
+<section class="hero">
+    <h1>Understanding Plastics</h1>
+    <p>A warm, mindful guide to responsible usage & sustainability.</p>
+</section>
+
+<!-- ------------ WHAT IS PLASTIC ------------ -->
+<section class="section">
+    <h2>What is Plastic?</h2>
+    <div class="card">
+        <p>
+            Plastic is a synthetic material used in almost every product we use daily.  
+            Its long-lasting nature makes it useful — but also harmful.  
+            Plastic takes <b>hundreds of years</b> to break down, making it dangerous for our environment.
+        </p>
+    </div>
+</section>
+
+<!-- ------------ PROBLEMS ------------ -->
+<section class="section">
+    <h2>Why Is Plastic Harmful?</h2>
+    <div class="card">
+        <ul>
+            <li>Takes 400–1000 years to decompose.</li>
+            <li>Pollutes oceans and harms marine life.</li>
+            <li>Breaks into microplastics that enter our body.</li>
+            <li>Burning plastic releases toxic chemicals.</li>
+            <li>Clogs drains causing floods and health issues.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ------------ TYPES OF PLASTIC ------------ -->
+<section class="section">
+    <h2>Types of Plastic</h2>
+    <div class="card">
+        <ul>
+            <li><b>PET</b> – Water/juice bottles</li>
+            <li><b>HDPE</b> – Shampoo, milk containers</li>
+            <li><b>PVC</b> – Pipes, insulation</li>
+            <li><b>LDPE</b> – Carry bags, packaging</li>
+            <li><b>PP</b> – Lunch boxes, food containers</li>
+            <li><b>PS</b> – Disposable cups, plates</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ------------ SOLUTIONS ------------ -->
+<section class="section">
+    <h2>How Can We Reduce Plastic Pollution?</h2>
+    <div class="card">
+        <ul>
+            <li>Carry cloth/jute bags instead of plastic.</li>
+            <li>Use reusable cups, bottles, and containers.</li>
+            <li>Segregate dry and wet waste at home.</li>
+            <li>Support recycling centres and initiatives.</li>
+            <li>Create DIY items using bottles and jars.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ------------ RENOVA WORK ------------ -->
+<section class="section">
+    <h2>ReNova’s Contribution</h2>
+    <div class="card">
+        <p>
+            ReNova hosts awareness camps, teaches recycling creativity,   
+            and motivates communities to reduce plastic waste.  
+            We work with students and families to build a cleaner, healthier Earth.
+        </p>
+    </div>
+</section>
+
+<section>
+  <a href="page2.html" id="Back"><strong><u>Back</u></strong></a>
+  <a href="page4.html" id="Next"><strong><u>Go to Page 4</u></strong></a>
+</section>
+
+<!-- 🌙 DARK MODE SCRIPT -->
+<script>
+document.getElementById("themeToggle").onclick = function () {
+    document.body.classList.toggle("dark");
+    this.textContent =
+        document.body.classList.contains("dark") ? "Light Mode" : "Dark Mode";
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Environmental Awareness Camps</title>
+
+<style>
+    :root {
+        --bg: #eaf4f4;
+        --card: #ffffff;
+        --text: #222;
+        --primary: #1c6e8c;
+        --secondary: #144d63;
+    }
+
+    body.dark {
+        --bg: #0e1b1f;
+        --card: #152a30;
+        --text: #e2e2e2;
+        --primary: #57c0d4;
+        --secondary: #89d7e8;
+    }
+
+    body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--text);
+        transition: 0.3s;
+    }
+
+    
+    nav {
+        background: var(--primary);
+        display: flex;
+        justify-content: space-between;
+        padding: 14px 20px;
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: 600;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    header {
+        background: var(--primary);
+        color: white;
+        padding: 35px 10px;
+        text-align: center;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 34px;
+        letter-spacing: 1px;
+    }
+
+    .section-title {
+        margin: 40px 0 10px;
+        font-size: 26px;
+        text-align: center;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .card {
+        background: var(--card);
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 12px;
+        border-left: 6px solid var(--primary);
+        box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        transition: 0.3s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+   
+
+    h3 {
+        margin-top: 0;
+        color: var(--secondary);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+        margin-top: 30px;
+        background: var(--secondary);
+        color: white;
+    }
+
+    .pdf-btn {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .pdf-btn:hover {
+        background: var(--secondary);
+    }
+
+    #Back{
+    bottom: 10px;
+    left: 20px;
+    color:#1c6e8c;
+}
+
+/* Minimal styling for the dark-mode toggle button (only addition) */
+#themeToggle {
+    position: fixed;
+    top: 14px;
+    right: 20px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: var(--secondary);
+    color: white;
+    font-weight: 600;
+    z-index: 1001;
+    transition: transform 0.15s ease;
+}
+#themeToggle:hover { transform: scale(1.03); }
+
+</style>
+</head>
+
+<body>
+
+<!-- Dark mode toggle button (only addition) -->
+<button id="themeToggle" aria-pressed="false">Dark Mode</button>
+
+\
+<nav>
+    <div>
+        <a href="#plastic">Plastic Camps</a>
+        <a href="#ewaste">E-Waste Drives</a>
+    </div>
+   
+</nav>
+
+<header>
+    <h1>Environmental Awareness Camps & Drives</h1>
+</header>
+
+<div class="container">
+
+ 
+
+    <div class="section-title" id="plastic">Plastic Awareness Camps</div>
+
+   
+    <div class="card">
+        
+        <h3>
+          
+            1. Swachh Bharat Abhiyan – Plastic Awareness Camps (India)
+        </h3>
+        <p><strong>Organizers:</strong> Government bodies, schools, colleges, NGOs</p>
+        <ul>
+            <li>Cleaning drives</li>
+            <li>Workshops on plastic alternatives</li>
+            <li>Pledge-taking sessions</li>
+            <li><strong>Focus:</strong> Reducing single-use plastic</li>
+        </ul>
+    </div>
+
+
+    <div class="card">
+        
+        <h3>
+            
+            2. UNEP – “Beat Plastic Pollution” Campaign
+        </h3>
+        <ul>
+            <li>Youth camps and global community activities</li>
+            <li>Promotes recycling & sustainable packaging</li>
+            <li>Encourages responsible consumption</li>
+        </ul>
+    </div>
+
+    
+    <div class="card">
+        
+        <h3>
+           
+            3. World Environment Day Camps
+        </h3>
+        <ul>
+            <li>Beach & river clean-ups</li>
+            <li>Workshops & eco-exhibitions</li>
+            <li>Focus on waste management & marine litter</li>
+        </ul>
+    </div>
+
+    
+    <div class="card">
+        
+        <h3>
+           
+            4. School & College Eco-Clubs
+        </h3>
+        <ul>
+            <li>Microplastics education</li>
+            <li>Waste segregation</li>
+            <li>DIY upcycling projects</li>
+            <li>Promoting eco-friendly alternatives</li>
+        </ul>
+    </div>
+
+    <div class="section-title" id="ewaste">E-Waste Awareness Drives</div>
+
+    <div class="card">
+        
+        <h3>
+           
+            1. “Dump and Donate” Drive (India)
+        </h3>
+        <ul>
+            <li>Conducted in 120 Indian cities</li>
+            <li>Collect usable electronics for donation</li>
+            <li>Recycle non-usable e-waste properly</li>
+        </ul>
+    </div>
+
+    
+    <div class="card">
+       
+        <h3>
+           
+            2. EWRI – E-Waste Awareness Camps
+        </h3>
+        <ul>
+            <li>Held in schools and communities</li>
+            <li>Ryan School, Rohini – Aug 2023</li>
+            <li>DPS Rohini – May 2023</li>
+        </ul>
+    </div>
+
+
+    <div class="card">
+       
+        <h3>
+           
+            3. RecyclEarth E-Waste Collection (Karnataka)
+        </h3>
+        <ul>
+            <li>15-day campaign (14–30 Oct 2023)</li>
+            <li>Collected approx. <strong>800 kg</strong> e-waste</li>
+            <li>CRT TVs, mobile phones, chargers</li>
+        </ul>
+    </div>
+
+   
+    <div class="card">
+       
+        <h3>
+           
+            4. IEEE ARMIET & NSS E-Waste Drive (Thane)
+        </h3>
+        <ul>
+            <li>Drive: 27 March 2024</li>
+            <li>Rally + collection in Sapgaon</li>
+            <li>Expert talk on circular economy</li>
+            <li>55 participants</li>
+        </ul>
+    </div>
+
+</div>
+
+<section>
+<a href="index.html" id="Back"><strong><u>Back</u></strong></a>
+<a href="page3.html" id="Next"><strong><u>Go to Page 3</u></strong></a>
+</section>
+
+<footer>
+     Environmental Awareness © 2025
+</footer>
+
+<!-- Minimal JS for dark-mode toggle (only addition) -->
+<script>
+(function(){
+    const btn = document.getElementById('themeToggle');
+    // initialize button label if page already has dark class
+    function updateLabel(){
+        const isDark = document.body.classList.contains('dark');
+        btn.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+        btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    }
+    btn.addEventListener('click', function(){
+        document.body.classList.toggle('dark');
+        updateLabel();
+    });
+    updateLabel();
+})();
+</script>
+
+</body>
+</html>
