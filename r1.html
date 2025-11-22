@@ -108,7 +108,7 @@
 <body>
 <div class="container">
     <h1>Join RENOVA</h1>
-    <form>
+    <form onsubmit="validateForm()">
 
         <h2> Personal Information</h2>
         <label for="fullname">Full Name</label>
@@ -132,7 +132,7 @@
 
         <h2> Address</h2>
         <label for="city">City</label>
-        <input type="text" id="city" name="city" required>
+        <input type="text" id="A1" name="city" required>
 
         <label for="state">State</label>
         <input type="text" id="state" name="state" required>
@@ -202,6 +202,27 @@
 </div>
 
 <script>
+    function validateForm()
+        {
+            let name=document.getElementById("fullname").value;
+            if(name==""){
+
+                alert("Please enter your Full Name.");
+                return false;
+            }
+            var mobile= document.getElementById("mobile").value;
+    var mobilePattern=/^[0-9]{10}$/;
+    if (!mobile.match(mobilePattern))
+    {
+        alert("Please enter a Valid 10 digit Number.");
+        return false;
+    }
+            let address=document.getElementById("A1").value;
+            if(address==""){
+
+                alert("Please enter your Address.");
+                return false;
+            }
     const wasteRadios = document.querySelectorAll('input[name="waste"]');
     const wasteDetails = document.getElementById('waste-details');
 
@@ -216,4 +237,5 @@
     });
 </script>
 </body>
+
 </html>
