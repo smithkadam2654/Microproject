@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Join RENOVA</title>
 <style>
     /* --- Color Theme --- */
@@ -54,6 +54,7 @@
 
     input[type="text"],
     input[type="email"],
+    input[type="tel"],
     input[type="number"],
     input[type="password"],
     select,
@@ -64,6 +65,8 @@
         border-radius: 5px;
         margin-bottom: 10px;
         font-size: 16px;
+        background: var(--input-bg);
+        color: var(--dark-text);
     }
 
     textarea {
@@ -108,23 +111,24 @@
 <body>
 <div class="container">
     <h1>Join RENOVA</h1>
-    <form onsubmit="return validateForm()">
+    <!-- added novalidate so we handle validation in JS and produce consistent alerts/messages -->
+    <form onsubmit="return validateForm()" novalidate>
 
         <h2> Personal Information</h2>
         <label for="fullname">Full Name</label>
-        <input type="text" id="fullname" name="fullname">
+        <input type="text" id="fullname" name="fullname" required>
 
         <label for="email">Email Address</label>
-        <input type="email" id="email" name="email">
+        <input type="email" id="email" name="email" required>
 
         <label for="mobile">Mobile Number</label>
-        <input type="text" id="mobile" name="mobile">
+        <input type="tel" id="mobile" name="mobile" maxlength="10" placeholder="10 digit number" required>
 
         <label for="age">Age</label>
-        <input type="number" id="age" name="age" min="10" max="120">
+        <input type="number" id="age" name="age" min="10" max="120" required>
 
         <label>Gender</label>
-        <div class="radio-group">
+        <div class="radio-group" aria-label="Gender">
             <label><input type="radio" name="gender" value="Male" required> Male</label>
             <label><input type="radio" name="gender" value="Female"> Female</label>
             <label><input type="radio" name="gender" value="Other"> Other</label>
@@ -132,26 +136,27 @@
 
         <h2> Address</h2>
         <label for="city">City</label>
-        <input type="text" id="A1" name="city">
+        <!-- changed id from A1 to city -->
+        <input type="text" id="city" name="city" required>
 
         <label for="state">State</label>
-        <input type="text" id="state" name="state">
+        <input type="text" id="state" name="state" required>
 
         <label for="pin">Pin Code</label>
-        <input type="text" id="pin" name="pin">
+        <input type="text" id="pin" name="pin" maxlength="6" placeholder="6 digit pin code" required>
 
         <label for="address">Full Address <span class="optional">(optional)</span></label>
         <textarea id="address" name="address" rows="3"></textarea>
 
         <h2> Your Interest in RENOVA</h2>
         <label for="reason">Why do you want to join RENOVA?</label>
-        <textarea id="reason" name="reason" rows="3"></textarea>
+        <textarea id="reason" name="reason" rows="3" required></textarea>
 
         <label>Which area you want to contribute to?</label>
-        <div class="checkbox-group">
+        <div class="checkbox-group" id="areas-group" role="group" aria-label="Areas of interest">
             <label><input type="checkbox" name="areas" value="Plastic Waste Awareness"> Plastic Waste Awareness</label>
             <label><input type="checkbox" name="areas" value="E-Waste Awareness"> E-Waste Awareness</label>
-            <label><input type="checkbox" name="areas" value="Recycling & Upcycling"> Recycling & Upcycling</label>
+            <label><input type="checkbox" name="areas" value="Recycling & Upcycling"> Recycling &amp; Upcycling</label>
             <label><input type="checkbox" name="areas" value="Clean-Up Drives"> Clean-Up Drives</label>
             <label><input type="checkbox" name="areas" value="Community Education"> Community Education</label>
             <label><input type="checkbox" name="areas" value="Volunteering for Events"> Volunteering for Events</label>
@@ -159,6 +164,7 @@
 
         <label for="time">How much time can you volunteer weekly?</label>
         <select id="time" name="time" required>
+            <option value="">-- Select an option --</option>
             <option value="1-2 hrs">1–2 hrs</option>
             <option value="3-5 hrs">3–5 hrs</option>
             <option value="6+ hrs">6+ hrs</option>
@@ -167,12 +173,12 @@
 
         <h2> Waste Contribution (Optional)</h2>
         <label>Do you have plastic or e-waste you want to recycle?</label>
-        <div class="radio-group">
+        <div class="radio-group" aria-label="Have waste to contribute">
             <label><input type="radio" name="waste" value="Yes"> Yes</label>
-            <label><input type="radio" name="waste" value="No"> No</label>
+            <label><input type="radio" name="waste" value="No" checked> No</label>
         </div>
 
-        <div id="waste-details" style="display:none;">
+        <div id="waste-details" style="display:none; margin-top:10px;">
             <label for="waste-type">Type of Waste</label>
             <select id="waste-type" name="waste-type">
                 <option value="Plastic">Plastic</option>
@@ -181,20 +187,20 @@
             </select>
 
             <label for="quantity">Approximate Quantity (kg / items)</label>
-            <input type="text" id="quantity" name="quantity">
+            <input type="text" id="quantity" name="quantity" placeholder="e.g., 5 kg or 10 items">
         </div>
 
         <h2> Login Information</h2>
         <label for="password">Create Password</label>
-        <input type="password" id="password" name="password" >
+        <input type="password" id="password" name="password" required minlength="6">
 
         <label for="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" name="confirm-password">
+        <input type="password" id="confirm-password" name="confirm-password" required minlength="6">
 
         <h2>Agreement</h2>
         <div class="checkbox-group">
-            <label><input type="checkbox" name="terms" required> I agree to RENOVA’s Terms & Conditions.</label>
-            <label><input type="checkbox" name="promise" required> I promise to contribute positively and responsibly towards the environment.</label>
+            <label><input type="checkbox" id="terms" name="terms" required> I agree to RENOVA’s Terms & Conditions.</label>
+            <label><input type="checkbox" id="promise" name="promise" required> I promise to contribute positively and responsibly towards the environment.</label>
         </div>
 
         <button type="submit">Join RENOVA</button>
@@ -202,47 +208,135 @@
 </div>
 
 <script>
-    function validateForm()
-        {
-            let name=document.getElementById("fullname").value;
-            if(name==""){
-
-                alert("Please enter your Full Name.");
-                return false;
-            }
-            var mobile= document.getElementById("mobile").value;
-    var mobilePattern=/^[0-9]{10}$/;
-    if (!mobile.match(mobilePattern))
-    {
-        alert("Please enter a Valid 10 digit Number.");
-        return false;
-    }
-            let address=document.getElementById("A1").value;
-            if(address==""){
-
-                alert("Please enter your Address.");
-                return false;
-            }
-             alert("Form Submitted succesfully");
-            return true;
-        }
+/* --- Waste details toggle --- */
+(function(){
     const wasteRadios = document.querySelectorAll('input[name="waste"]');
     const wasteDetails = document.getElementById('waste-details');
 
-    wasteRadios.forEach(radio => {
-        radio.addEventListener('change', () => {
-            if(radio.value === "Yes") {
-                wasteDetails.style.display = 'block';
-            } else {
-                wasteDetails.style.display = 'none';
-            }
-        });
-    });
+    function updateWasteVisibility() {
+        const selected = document.querySelector('input[name="waste"]:checked');
+        if (selected && selected.value === "Yes") {
+            wasteDetails.style.display = 'block';
+        } else {
+            wasteDetails.style.display = 'none';
+        }
+    }
+
+    // attach listeners
+    wasteRadios.forEach(radio => radio.addEventListener('change', updateWasteVisibility));
+
+    // initial state
+    updateWasteVisibility();
+})();
+
+/* --- Form validation --- */
+function validateForm() {
+    // basic required checks (HTML also enforces required where present)
+    const fullname = document.getElementById('fullname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const mobile = document.getElementById('mobile').value.trim();
+    const city = document.getElementById('city').value.trim();
+    const state = document.getElementById('state').value.trim();
+    const pin = document.getElementById('pin').value.trim();
+    const reason = document.getElementById('reason').value.trim();
+    const password = document.getElementById('password').value;
+    const confirm = document.getElementById('confirm-password').value;
+
+    if (!fullname) {
+        alert('Please enter your full name.');
+        document.getElementById('fullname').focus();
+        return false;
+    }
+
+    // simple email pattern
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailPattern.test(email)) {
+        alert('Please enter a valid email address.');
+        document.getElementById('email').focus();
+        return false;
+    }
+
+    // mobile: exactly 10 digits
+    const mobilePattern = /^[0-9]{10}$/;
+    if (!mobilePattern.test(mobile)) {
+        alert('Please enter a valid 10-digit mobile number (digits only).');
+        document.getElementById('mobile').focus();
+        return false;
+    }
+
+    if (!city) {
+        alert('Please enter your city.');
+        document.getElementById('city').focus();
+        return false;
+    }
+
+    if (!state) {
+        alert('Please enter your state.');
+        document.getElementById('state').focus();
+        return false;
+    }
+
+    // pin code: 6 digits (common in India); adjust if different in your region
+    const pinPattern = /^[0-9]{6}$/;
+    if (!pinPattern.test(pin)) {
+        alert('Please enter a valid 6-digit pin code.');
+        document.getElementById('pin').focus();
+        return false;
+    }
+
+    if (!reason) {
+        alert('Please tell us why you want to join RENOVA.');
+        document.getElementById('reason').focus();
+        return false;
+    }
+
+    // at least one interest area checked
+    const areaChecked = Array.from(document.querySelectorAll('input[name="areas"]')).some(cb => cb.checked);
+    if (!areaChecked) {
+        alert('Please select at least one area where you want to contribute.');
+        return false;
+    }
+
+    // time select required (HTML should enforce but double-check)
+    const time = document.getElementById('time').value;
+    if (!time) {
+        alert('Please select how much time you can volunteer weekly.');
+        document.getElementById('time').focus();
+        return false;
+    }
+
+    // password checks
+    if (password.length < 6) {
+        alert('Password should be at least 6 characters long.');
+        document.getElementById('password').focus();
+        return false;
+    }
+    if (password !== confirm) {
+        alert('Passwords do not match. Please confirm your password.');
+        document.getElementById('confirm-password').focus();
+        return false;
+    }
+
+    // terms & promise required (HTML enforces, but double-check)
+    if (!document.getElementById('terms').checked || !document.getElementById('promise').checked) {
+        alert('You must accept the Terms & Conditions and promise to contribute responsibly.');
+        return false;
+    }
+
+    // If user said they have waste, ensure quantity isn't empty (optional)
+    const wasteYes = document.querySelector('input[name="waste"]:checked')?.value === 'Yes';
+    if (wasteYes) {
+        const qty = document.getElementById('quantity').value.trim();
+        if (!qty) {
+            const ok = confirm('You selected that you have waste to contribute but did not provide quantity. Continue without providing quantity?');
+            if (!ok) return false;
+        }
+    }
+
+    // passed all checks
+    alert('Form submitted successfully — thank you for joining RENOVA!');
+    return true;
+}
 </script>
 </body>
-
 </html>
-
-
-
-
