@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join RENOVA</title>
+<style>
+    /* --- Color Theme --- */
+    :root {
+        --earth-green: #2E4D3E;
+        --gold: #D4AF37;
+        --light-beige: #F5F3E7;
+        --dark-text: #1F1F1F;
+        --input-bg: #FFFFFF;
+        --border-color: #D4AF37;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--light-beige);
+        margin: 0;
+        padding: 0;
+        color: var(--dark-text);
+    }
+
+    .container {
+        max-width: 700px;
+        margin: 50px auto;
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        border-top: 5px solid var(--gold);
+    }
+
+    h1 {
+        text-align: center;
+        color: var(--earth-green);
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        color: var(--earth-green);
+        border-bottom: 2px solid var(--gold);
+        padding-bottom: 5px;
+        margin-top: 30px;
+    }
+
+    label {
+        display: block;
+        margin: 15px 0 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="password"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    .radio-group, .checkbox-group {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+    }
+
+    .radio-group label, .checkbox-group label {
+        font-weight: normal;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        background-color: var(--gold);
+        color: var(--earth-green);
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 20px;
+    }
+
+    button:hover {
+        background-color: #c49b2f;
+    }
+
+    .optional {
+        font-size: 14px;
+        color: #666;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Join RENOVA</h1>
+    <form>
+
+        <h2> Personal Information</h2>
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="mobile">Mobile Number</label>
+        <input type="text" id="mobile" name="mobile" required>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" required min="10" max="120">
+
+        <label>Gender</label>
+        <div class="radio-group">
+            <label><input type="radio" name="gender" value="Male" required> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+            <label><input type="radio" name="gender" value="Other"> Other</label>
+        </div>
+
+        <h2> Address</h2>
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" required>
+
+        <label for="state">State</label>
+        <input type="text" id="state" name="state" required>
+
+        <label for="pin">Pin Code</label>
+        <input type="text" id="pin" name="pin" required>
+
+        <label for="address">Full Address <span class="optional">(optional)</span></label>
+        <textarea id="address" name="address" rows="3"></textarea>
+
+        <h2> Your Interest in RENOVA</h2>
+        <label for="reason">Why do you want to join RENOVA?</label>
+        <textarea id="reason" name="reason" rows="3" required></textarea>
+
+        <label>Which area you want to contribute to?</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="areas" value="Plastic Waste Awareness"> Plastic Waste Awareness</label>
+            <label><input type="checkbox" name="areas" value="E-Waste Awareness"> E-Waste Awareness</label>
+            <label><input type="checkbox" name="areas" value="Recycling & Upcycling"> Recycling & Upcycling</label>
+            <label><input type="checkbox" name="areas" value="Clean-Up Drives"> Clean-Up Drives</label>
+            <label><input type="checkbox" name="areas" value="Community Education"> Community Education</label>
+            <label><input type="checkbox" name="areas" value="Volunteering for Events"> Volunteering for Events</label>
+        </div>
+
+        <label for="time">How much time can you volunteer weekly?</label>
+        <select id="time" name="time" required>
+            <option value="1-2 hrs">1–2 hrs</option>
+            <option value="3-5 hrs">3–5 hrs</option>
+            <option value="6+ hrs">6+ hrs</option>
+            <option value="Weekend only">Weekend only</option>
+        </select>
+
+        <h2> Waste Contribution (Optional)</h2>
+        <label>Do you have plastic or e-waste you want to recycle?</label>
+        <div class="radio-group">
+            <label><input type="radio" name="waste" value="Yes"> Yes</label>
+            <label><input type="radio" name="waste" value="No"> No</label>
+        </div>
+
+        <div id="waste-details" style="display:none;">
+            <label for="waste-type">Type of Waste</label>
+            <select id="waste-type" name="waste-type">
+                <option value="Plastic">Plastic</option>
+                <option value="E-waste">E-Waste</option>
+                <option value="Both">Both</option>
+            </select>
+
+            <label for="quantity">Approximate Quantity (kg / items)</label>
+            <input type="text" id="quantity" name="quantity">
+        </div>
+
+        <h2> Login Information</h2>
+        <label for="password">Create Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+
+        <h2>Agreement</h2>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="terms" required> I agree to RENOVA’s Terms & Conditions.</label>
+            <label><input type="checkbox" name="promise" required> I promise to contribute positively and responsibly towards the environment.</label>
+        </div>
+
+        <button type="submit">Join RENOVA</button>
+    </form>
+</div>
+
+<script>
+    const wasteRadios = document.querySelectorAll('input[name="waste"]');
+    const wasteDetails = document.getElementById('waste-details');
+
+    wasteRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if(radio.value === "Yes") {
+                wasteDetails.style.display = 'block';
+            } else {
+                wasteDetails.style.display = 'none';
+            }
+        });
+    });
+</script>
+</body>
+</html>
